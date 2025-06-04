@@ -1,0 +1,60 @@
+Privacy Risk Assessment Report for Network 0
+============================================================
+
+Network-level Statistics:
+Average Privacy Risk: 0.1987
+Maximum Privacy Risk: 0.2140
+Minimum Privacy Risk: 0.1597
+
+Top 10 Most At-Risk Nodes:
+1. Node 268: Risk Score 0.2140
+2. Node 16: Risk Score 0.2134
+3. Node 29: Risk Score 0.2133
+4. Node 314: Risk Score 0.2129
+5. Node 222: Risk Score 0.2126
+6. Node 311: Risk Score 0.2118
+7. Node 59: Risk Score 0.2118
+8. Node 238: Risk Score 0.2111
+9. Node 65: Risk Score 0.2108
+10. Node 96: Risk Score 0.2105
+
+Feature Importance Analysis:
+Top 5 most privacy-sensitive features:
+1. 87 (Importance: 0.5526)
+2. 157 (Importance: 0.5511)
+3. 42 (Importance: 0.5500)
+4. 34 (Importance: 0.5465)
+5. 66 (Importance: 0.5456)
+
+Privacy Recommendations:
+Based on the feature importance analysis, consider limiting the exposure of the following information:
+- 87
+- 157
+- 42
+
+Node-specific Privacy Recommendations:
+Node 268 (Risk: 0.2140):
+  - Consider reviewing privacy settings and limiting network visibility
+  - Reduce exposure of sensitive personal information
+  - Review friend connections and consider creating separate circles/groups
+
+Node 16 (Risk: 0.2134):
+  - Consider reviewing privacy settings and limiting network visibility
+  - Reduce exposure of sensitive personal information
+  - Review friend connections and consider creating separate circles/groups
+
+Node 29 (Risk: 0.2133):
+  - Consider reviewing privacy settings and limiting network visibility
+  - Reduce exposure of sensitive personal information
+  - Review friend connections and consider creating separate circles/groups
+
+Node 314 (Risk: 0.2129):
+  - Consider reviewing privacy settings and limiting network visibility
+  - Reduce exposure of sensitive personal information
+  - Review friend connections and consider creating separate circles/groups
+
+Node 222 (Risk: 0.2126):
+  - Consider reviewing privacy settings and limiting network visibility
+  - Reduce exposure of sensitive personal information
+  - Review friend connections and consider creating separate circles/groups
+

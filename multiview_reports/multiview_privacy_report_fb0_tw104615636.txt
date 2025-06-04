@@ -1,0 +1,66 @@
+Multi-view Privacy Risk Assessment Report
+Facebook Network: 0, Twitter Network: 104615636
+============================================================
+
+Network-level Statistics:
+Combined Model:
+  Average Privacy Risk: 0.1494
+  Maximum Privacy Risk: 0.1558
+  Minimum Privacy Risk: 0.1247
+
+Facebook Model:
+  Average Privacy Risk: 0.1474
+  Maximum Privacy Risk: 0.1559
+  Minimum Privacy Risk: 0.1144
+
+Twitter Model:
+  Average Privacy Risk: 0.1618
+  Maximum Privacy Risk: 0.1818
+  Minimum Privacy Risk: 0.1437
+
+Top 10 Most At-Risk Nodes:
+1. Node 298: Combined Risk 0.1558, FB Risk 0.1558, TW Risk N/A
+2. Node 314: Combined Risk 0.1558, FB Risk 0.1559, TW Risk N/A
+3. Node 268: Combined Risk 0.1556, FB Risk 0.1554, TW Risk N/A
+4. Node 311: Combined Risk 0.1554, FB Risk 0.1554, TW Risk N/A
+5. Node 16: Combined Risk 0.1554, FB Risk 0.1554, TW Risk 0.1718
+6. Node 96: Combined Risk 0.1552, FB Risk 0.1552, TW Risk N/A
+7. Node 295: Combined Risk 0.1551, FB Risk 0.1549, TW Risk N/A
+8. Node 29: Combined Risk 0.1550, FB Risk 0.1549, TW Risk 0.1630
+9. Node 222: Combined Risk 0.1548, FB Risk 0.1545, TW Risk N/A
+10. Node 167: Combined Risk 0.1548, FB Risk 0.1542, TW Risk N/A
+
+Feature Importance Analysis:
+Top Facebook Features:
+1. 195 (Importance: 0.5483)
+2. 26 (Importance: 0.5462)
+3. 58 (Importance: 0.5441)
+4. 53 (Importance: 0.5429)
+5. 91 (Importance: 0.5428)
+
+Top Twitter Features:
+1. #Discovery (Importance: 0.5469)
+2. #leadersdebate (Importance: 0.5464)
+3. @guardian (Importance: 0.5442)
+4. @jane__bradley (Importance: 0.5419)
+5. @trussliz (Importance: 0.5408)
+
+Combined Important Features:
+1. [facebook] 195 (Importance: 0.5483)
+2. [twitter] #Discovery (Importance: 0.5469)
+3. [twitter] #leadersdebate (Importance: 0.5464)
+4. [facebook] 26 (Importance: 0.5462)
+5. [twitter] @guardian (Importance: 0.5442)
+
+Privacy Recommendations:
+Based on the multi-view analysis, consider limiting the exposure of the following information:
+- [facebook] 195
+- [twitter] #Discovery
+- [twitter] #leadersdebate
+
+Cross-Platform Privacy Insights:
+1. Review privacy settings on both platforms to ensure consistent protection
+2. Be aware that information shared on one platform can affect privacy on the other
+3. Consider using different privacy settings for different social circles
+4. Limit cross-platform information sharing that could enable identity linkage
+5. Regularly audit your privacy settings on both platforms

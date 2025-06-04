@@ -1,118 +1,118 @@
-# AI-Powered Privacy Risk Prediction for Social Media Users
+# Privacy Risk Assessment Using Graph Neural Networks
 
-This project implements a Graph Convolutional Network (GCN) to predict privacy risks for users in social networks. The system uses real Facebook ego-network data to train a model that can identify users who are at risk of having their sensitive attributes inferred through their network connections.
+This project implements a Graph Neural Network (GNN) model for privacy risk assessment in social networks using the Facebook ego-network dataset. The model identifies privacy risks based on network structure and node attributes, providing explainable privacy risk scores and recommendations.
 
-## Overview
+## Project Overview
 
-### The Prediction Model (GNN: GCNPrivacyPredictor)
+The project consists of several components:
 
-The GCN takes user attributes and their social network connections as input, and outputs a privacy risk score for each user. A lower score indicates higher privacy risk (easier to re-identify or infer sensitive information), while a higher score indicates better privacy.
+1. **Data Loading and Processing**: Processes the Facebook ego-network dataset
+2. **GNN Model**: Implements privacy risk assessment using Graph Neural Networks
+3. **Training Pipeline**: Trains the GNN model on the Facebook dataset
+4. **Evaluation and Visualization**: Evaluates privacy risks and generates visual reports
 
-### The Simulation Model
+## Features
 
-The simulation model applies privacy-enhancing techniques to users identified as high-risk by the GNN. It generalizes sensitive attributes for these users and recalculates privacy scores to provide new ground truth labels for the GNN to learn from.
+- Privacy risk scoring for individual users in a social network
+- Identification of sensitive attributes contributing to privacy risks
+- Network-level privacy risk assessment
+- Visual representation of privacy risks in networks
+- Explainable AI approach with feature attribution
 
-### Iterative Learning Process
+## Dataset
 
-The system iteratively improves through:
-1. GNN prediction of privacy risks
-2. Simulation of privacy-enhancing interventions
-3. Recalculation of privacy scores based on interventions
-4. GNN retraining with new data and scores
+The project uses the Facebook ego-network dataset, which contains:
+- Network structure (edges between users)
+- Node features (user attributes)
+- Circles/communities information
 
-## Data
-
-The project uses the Facebook ego-network dataset provided in the `/facebook` directory, which includes:
-- `.edges` files: Social connections between users
-- `.feat` files: User attribute features
-- `.featnames` files: Names of the features
-- `.circles` files: Group membership information
-
-## Requirements
-
-```
-numpy
-pandas
-torch
-torch-geometric
-matplotlib
-networkx
-scikit-learn
-```
+Each ego-network consists of:
+- `.edges` files: Edge lists representing connections
+- `.feat` files: Node feature matrices
+- `.featnames` files: Names of features
+- `.circles` files: Community memberships
+- `.egofeat` files: Ego node's own features
 
 ## Installation
 
-1. Install required packages:
 ```bash
-pip install numpy pandas torch torch-geometric matplotlib networkx scikit-learn
-```
+# Clone the repository
+git clone <repository-url>
+cd privacy-risk-gnn
 
-2. If you're having trouble with PyTorch Geometric, you might need to install it with specific CUDA version support:
-```bash
-pip install torch-geometric
-pip install pyg-lib torch-scatter torch-sparse torch-cluster torch-spline-conv -f https://data.pyg.org/whl/torch-${TORCH_VERSION}+${CUDA_VERSION}.html
+# Install dependencies
+pip install -r requirements.txt
 ```
-Replace `${TORCH_VERSION}` and `${CUDA_VERSION}` with your installed versions.
 
 ## Usage
 
-### Running the Model
-
-To train and evaluate the model on a specific ego network:
+### Training the Model
 
 ```bash
-python gnn_privacy_predictor.py
+python train.py --data_dir facebook --model_type explainable --conv_type GAT --epochs 50
 ```
 
-This will:
-1. Load the Facebook data for the default ego user (ID: 0)
-2. Train the GNN model iteratively with privacy simulations
-3. Output performance metrics for each iteration
+Command-line arguments:
+- `--data_dir`: Path to the Facebook dataset directory
+- `--model_type`: Type of model (`basic` or `explainable`)
+- `--conv_type`: GNN layer type (`GCN`, `GAT`, or `SAGE`)
+- `--hidden_dim`: Hidden dimension size
+- `--num_layers`: Number of GNN layers
+- `--epochs`: Number of training epochs
+- `--output_dir`: Output directory for model and results
 
-### Visualizing Results
-
-To generate visualizations of the model's performance:
+### Evaluating Privacy Risks
 
 ```bash
-python visualize_results.py
+python evaluate.py --model_path output/best_model.pt --ego_id 0
 ```
 
-This will produce:
-1. Plots of performance metrics over iterations
-2. A privacy-utility tradeoff graph
-3. A network visualization with nodes colored by privacy scores
-4. A distribution plot of the sensitive attribute
+Command-line arguments:
+- `--model_path`: Path to the trained model
+- `--ego_id`: Specific ego-network ID to evaluate (optional)
+- `--model_type`: Type of model (`basic` or `explainable`)
+- `--output_dir`: Output directory for results
 
-## Customization
+## Model Architecture
 
-You can customize the model by modifying these parameters in `gnn_privacy_predictor.py`:
+The project implements two GNN model variants:
 
-- `ego_id`: ID of the ego user to analyze (default: "0")
-- `num_iterations`: Number of training/simulation cycles (default: 5)
-- `privacy_threshold`: Threshold below which privacy enhancement is applied (default: 0.3)
-- `intervention_rate`: Proportion of at-risk users to enhance (default: 0.6)
-- `sensitive_attr_idx`: Index of the feature to use as sensitive attribute (default: randomly selected)
+1. **Basic Privacy GNN**: A standard GNN model for privacy risk assessment
+   - Multiple GNN layers (GCN, GAT, or GraphSAGE)
+   - Structural feature incorporation
+   - Privacy risk score prediction
 
-## How It Works
+2. **Explainable Privacy GNN**: An extension with feature attribution
+   - Attention-based feature importance
+   - Explanations for privacy risk scores
+   - Identification of privacy-sensitive attributes
 
-1. **Data Loading**: The system loads an ego-network from the Facebook dataset.
+## Privacy Risk Metrics
 
-2. **Privacy Scoring**: Initially calculates "ground truth" privacy scores based on how easily a user's sensitive attribute can be inferred from their neighbors.
+The model assesses privacy risks based on:
+- Exposure of sensitive attributes
+- Network structure and connectivity
+- Node degree and influence in the network
+- Community/circle membership
 
-3. **GNN Training**: Trains the GCN model to predict these privacy scores based on user features and network connections.
+## Output and Visualization
 
-4. **Simulation**: Uses the trained model to identify high-risk users and applies privacy enhancement (attribute generalization).
+The evaluation produces:
+- Privacy risk scores for each user
+- Network visualizations with color-coded risk levels
+- Feature importance analysis
+- Privacy recommendations based on risk assessment
+- Summary reports and statistics
 
-5. **Iteration**: Recalculates privacy scores after enhancement and retrains the model, creating an iterative improvement cycle.
+## Unique Aspects
 
-## Output
-
-The system produces:
-- Trained GNN model for privacy risk prediction
-- Performance metrics (MSE, Accuracy, F1 Score, AUC)
-- Privacy-utility tradeoff measurement
-- Visualizations of the network and privacy scores
+This implementation includes several unique features:
+- Combined feature-based and structural approach to privacy assessment
+- Explainable AI techniques for transparent privacy scoring
+- Node-level and network-level risk analysis
+- Integration of social network structure with attribute sensitivity
+- Visual representation of privacy risks in the network
 
 ## License
 
-This project is for academic and research purposes only. 
+This project is licensed under the MIT License - see the LICENSE file for details. 

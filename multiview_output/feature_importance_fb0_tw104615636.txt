@@ -1,0 +1,24 @@
+Multi-view Privacy Risk Assessment Feature Importance
+==================================================
+
+Top Facebook Features:
+1. 195 (Importance: 0.5483)
+2. 26 (Importance: 0.5462)
+3. 58 (Importance: 0.5441)
+4. 53 (Importance: 0.5429)
+5. 91 (Importance: 0.5428)
+
+Top Twitter Features:
+1. #Discovery (Importance: 0.5469)
+2. #leadersdebate (Importance: 0.5464)
+3. @guardian (Importance: 0.5442)
+4. @jane__bradley (Importance: 0.5419)
+5. @trussliz (Importance: 0.5408)
+
+Combined Important Features:
+1. [facebook] 195 (Importance: 0.5483)
+2. [twitter] #Discovery (Importance: 0.5469)
+3. [twitter] #leadersdebate (Importance: 0.5464)
+4. [facebook] 26 (Importance: 0.5462)
+5. [twitter] @guardian (Importance: 0.5442)
+6. [facebook] 58 (Importance: 0.5441)
